@@ -417,6 +417,8 @@ bool destory_fishbot_transport()
     // 用于销毁一个 ROS 2 发布者（Publisher）
     RCSOFTCHECK(rcl_publisher_fini(&odom_publisher, &node));
     // 用于销毁一个 ROS 2 订阅者（Subscriber）
+    RCSOFTCHECK(rcl_publisher_fini(&ultrasonic_pub, &node)); // 新增：销毁超声波发布器
+    RCSOFTCHECK(rcl_subscription_fini(&clean_sub, &node)); // 新增：销毁吸尘器订阅器
     RCSOFTCHECK(rcl_subscription_fini(&twist_subscriber, &node));
     // 用于销毁一个 ROS 2 服务（Service）
     RCSOFTCHECK(rcl_service_fini(&config_service, &node));
