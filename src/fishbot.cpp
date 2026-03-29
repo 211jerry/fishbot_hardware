@@ -175,10 +175,10 @@ bool setup_fishbot()
     // 初始化IMU
     imu.begin(18, 19);
     // 2.设置IO 电机&编码器
-    motor.attachMotor(0, CONFIG_DEFAULT_MOTOR0_A_GPIO, CONFIG_DEFAULT_MOTOR0_B_GPIO);
-    motor.attachMotor(1, CONFIG_DEFAULT_MOTOR1_A_GPIO, CONFIG_DEFAULT_MOTOR1_B_GPIO);
-    encoders[0].init(CONFIG_DEFAULT_PCNT_UTIL_00, CONFIG_DEFAULT_ENCODER0_A_GPIO, CONFIG_DEFAULT_ENCODER0_B_GPIO);
-    encoders[1].init(CONFIG_DEFAULT_PCNT_UTIL_01, CONFIG_DEFAULT_ENCODER1_A_GPIO, CONFIG_DEFAULT_ENCODER1_B_GPIO);
+    motor.attachMotor(0, CONFIG_DEFAULT_MOTOR1_B_GPIO, CONFIG_DEFAULT_MOTOR1_A_GPIO);
+    motor.attachMotor(1, CONFIG_DEFAULT_MOTOR0_B_GPIO, CONFIG_DEFAULT_MOTOR0_A_GPIO);
+    encoders[0].init(CONFIG_DEFAULT_PCNT_UTIL_00, CONFIG_DEFAULT_ENCODER1_A_GPIO, CONFIG_DEFAULT_ENCODER1_B_GPIO);
+    encoders[1].init(CONFIG_DEFAULT_PCNT_UTIL_01, CONFIG_DEFAULT_ENCODER0_A_GPIO, CONFIG_DEFAULT_ENCODER0_B_GPIO);
     // 3.设置PID
     pid_controller[0].update_pid(config.kinematics_pid_kp(), config.kinematics_pid_ki(), config.kinematics_pid_kd());
     pid_controller[1].update_pid(config.kinematics_pid_kp(), config.kinematics_pid_ki(), config.kinematics_pid_kd());
